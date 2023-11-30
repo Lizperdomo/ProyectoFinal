@@ -1,0 +1,130 @@
+ERROR - 2023-11-30 02:10:05 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'isa'@'localhost' (using password: YES) in D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('127.0.0.1', 'isa', '150503', 'seguros', 3306, '', 0)
+#1 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Models\UsuarioModel.php(55): CodeIgniter\BaseModel->first()
+#7 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Controllers\AuthController.php(24): App\Models\UsuarioModel->getUserByCredentials('Liz', 'liz080903')
+#8 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(919): App\Controllers\AuthController->login()
+#9 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#10 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perd...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Models\UsuarioModel.php(55): CodeIgniter\BaseModel->first()
+#6 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Controllers\AuthController.php(24): App\Models\UsuarioModel->getUserByCredentials('Liz', 'liz080903')
+#7 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(919): App\Controllers\AuthController->login()
+#8 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#9 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perd...')
+#12 {main}
+CRITICAL - 2023-11-30 02:10:05 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `usuarios`
+WHERE `nombreUsuario` = :nombreUsuario:
+AND `contraseña` = :contraseña:
+AND `usuarios`.`deleted_at` IS NULL
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\UsuarioModel.php(55): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\AuthController.php(24): App\Models\UsuarioModel->getUserByCredentials('Liz', 'liz080903')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AuthController->login()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perdomo\\Documents\\PROYECTOFINAL\\public\\index.php')
+ERROR - 2023-11-30 02:10:29 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'Lizbeth'@'localhost' (using password: YES) in D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('127.0.0.1', 'Lizbeth', 'Luna2003', 'seguros', 3306, '', 0)
+#1 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Models\UsuarioModel.php(55): CodeIgniter\BaseModel->first()
+#7 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Controllers\AuthController.php(24): App\Models\UsuarioModel->getUserByCredentials('Liz', 'liz080903')
+#8 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(919): App\Controllers\AuthController->login()
+#9 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#10 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perd...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Models\UsuarioModel.php(55): CodeIgniter\BaseModel->first()
+#6 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Controllers\AuthController.php(24): App\Models\UsuarioModel->getUserByCredentials('Liz', 'liz080903')
+#7 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(919): App\Controllers\AuthController->login()
+#8 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#9 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perd...')
+#12 {main}
+CRITICAL - 2023-11-30 02:10:29 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `usuarios`
+WHERE `nombreUsuario` = :nombreUsuario:
+AND `contraseña` = :contraseña:
+AND `usuarios`.`deleted_at` IS NULL
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\UsuarioModel.php(55): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\AuthController.php(24): App\Models\UsuarioModel->getUserByCredentials('Liz', 'liz080903')
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AuthController->login()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perdomo\\Documents\\PROYECTOFINAL\\public\\index.php')
+CRITICAL - 2023-11-30 02:16:18 --> Undefined variable $coberturas
+in APPPATH\Views\admin\estadisticas.php on line 53.
+ 1 APPPATH\Views\admin\estadisticas.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $coberturas', 'D:\\Lizbeth Perdomo\\Documents\\PROYECTOFINAL\\app\\Views\\admin\\estadisticas.php', 53)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\Lizbeth Perdomo\\Documents\\PROYECTOFINAL\\app\\Views\\admin\\estadisticas.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('admin/estadisticas', [], true)
+ 5 APPPATH\Controllers\Admin.php(274): view('admin/estadisticas', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Admin->estadistica()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perdomo\\Documents\\PROYECTOFINAL\\public\\index.php')
+ERROR - 2023-11-30 02:21:01 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`seguros`.`ventas`, CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id`)) in D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ve...', 0)
+#1 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ve...')
+#2 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ve...')
+#3 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ve...', Array, false)
+#4 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\app\Controllers\Cliente.php(90): CodeIgniter\Model->insert(Array, false)
+#8 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(919): App\Controllers\Cliente->insertarCompra()
+#9 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cliente))
+#10 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\Lizbeth Perdomo\Documents\PROYECTOFINAL\system\Commands\Server\rewrite.php(47): require_once('D:\\Lizbeth Perd...')
+#13 {main}
