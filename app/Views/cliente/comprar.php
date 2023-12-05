@@ -35,6 +35,7 @@
 
         input[type="text"],
         input[type="number"],
+        input[type="date"],
         select {
             width: 100%;
             padding: 8px;
@@ -60,10 +61,14 @@
 </head>
 <body>
     <h1>Comprar cobertura</h1>
-    <h1></h1>
     <div class="form-container">
-    <form action="<?= base_url('cliente/insertarCompra'); ?>" method="POST"> <!--Ruta del mètodo del controlador-->
-    <!---Se establece un formulario con los campos que se almacenan en la base para realizar la compra-->
+    <?php
+        // Recupera los parámetros de la URL
+        $nombreCobertura = urldecode($_GET['nombre']);
+        $montoCobertura = urldecode($_GET['monto']);
+    ?>
+    <form action="<?= base_url('cliente/insertarCompra'); ?>" method="POST">
+                 <?= csrf_field() ?>
             <div class="form-group">
                 <label for="numeroTarjeta">Numero de tarjeta:</label>
                 <input type="number" id="numeroTarjeta" name="numeroTarjeta" placeholder="" required>
@@ -73,15 +78,23 @@
                 <input type="number" id="cvv" name="cvv" required>
             </div>
             <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($nombreCobertura); ?>" readonly> <!---Se toma el nombre de la cobertura que se seleccione--->
+            </div>
+            <div class="form-group">
                 <label for="monto">Monto:</label>
-                <input type="text" id="monto" name="monto" required>
+                <input type="text" id="monto" name="monto" value="<?= htmlspecialchars($montoCobertura); ?>" readonly> <!---Se toma el monto de la cobertura que se seleccione--->
             </div>
+            <?php
+            // Establece la zona horaria a 'America/Mexico_City'
+                date_default_timezone_set('America/Mexico_City');
+
+            // Obtiene la fecha actual con la zona horaria configurada
+                  $fechaActual = date('Y-m-d');
+                ?>
+            <input type="hidden" name="created_at" value="<?= $fechaActual ?>"> <!---toma la fecha actual--->
             <div class="form-group">
-                <label for="cobertura">Cobertura:</label>
-                <input type="text" id="cobertura" name="cobertura" required>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Comprar"> <!---Este es el botòn para comprar--->
+                <input type="submit" value="Comprar">
             </div>
         </form>
     </div>
