@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+$session = \Config\Services::session();
+
 
 class Admin extends BaseController
 {
@@ -15,10 +17,23 @@ class Admin extends BaseController
 
     public function inicio()
     {
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
+        
         return view('inicios/inicioAdmin'); //Direcciona al menù del administrador
     }
 
     public function mostrar(){
+
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
+
         $usuarioModel = model('UsuarioModel'); //Se obtienen los datos del modelo de los usuarios
         $data['usuarios'] = $usuarioModel->findAll(); //Se obtienen los datos del modelo de los usuarios
         if (!empty($data['usuarios'])) { //Se establece que no se muestre el primer registro ya que es el del administrador
@@ -33,10 +48,16 @@ class Admin extends BaseController
     }
 
     public function agregar(){
+        
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
+
         helper(['form', 'url']);
 
         $validation =  \Config\Services::validation();//valida los datos
-        
         if ((strtolower($this->request->getMethod()) !== 'get')) {
     
         //Muestra las vistas de la funciòn de agregar
@@ -94,6 +115,12 @@ class Admin extends BaseController
 
     public function editar($id)
     {
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
+
         $usuarioModel = model('UsuarioModel'); //Se toma el modelo de usuarios
         $data['usuario'] = $usuarioModel->find($id);//Se obtienen los datos dentro del modelo pero solo se mostraran los datos del usuario que tenga el id al que se este accediendo
 
@@ -133,6 +160,12 @@ class Admin extends BaseController
 
     public function buscar()
     {
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
+
         $usuarioModel = model('UsuarioModel');//Se toma el modelo de usuarios
 
         //Se jalan los datos por los cuales se va a buscar y se van almacenar en data
@@ -156,6 +189,11 @@ class Admin extends BaseController
     //Funciones de las coberturas 
 
     public function mostrarCoberturas(){
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
         $coberturasModel = model('CoberturasModel'); //Se toma el modelo de las coberturas
         $data['coberturas'] = $coberturasModel->findAll(); //Se almacenan los datos
 
@@ -168,6 +206,11 @@ class Admin extends BaseController
     }
 
     public function agregarCobertura(){
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
         helper(['form', 'url']);
 
         //se establece la validacion de los datos
@@ -202,7 +245,7 @@ class Admin extends BaseController
             "nombre" => $_POST['nombre'],
             "descripcion" => $_POST['descripcion'],
             "status" => $_POST['status'],
-            "costo" => $_POST['costo'],
+            "monto" => $_POST['monto']
         ];
         //se jalan los datos y se muestran en la vista de mostrar coberturas
         $coberturasModel->insert($data, false);
@@ -218,6 +261,11 @@ class Admin extends BaseController
 
     public function editarCobertura($id)//se jala el id de la cobertura a editar
     {
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
         $coberturasModel = model('CoberturasModel');//Se toma el modelo de las coberturas
         $data['cobertura'] = $coberturasModel->find($id);//se jala el id de la cobertura a editar
 
@@ -240,7 +288,7 @@ class Admin extends BaseController
             "nombre" => $this->request->getVar('nombre'),
             "descripcion" => $this->request->getVar('descripcion'),
             "status" => $this->request->getVar('status'),
-            "costo" => $this->request->getVar('costo'),
+            "monto" => $this->request->getVar('monto'),
         ];
 
         //se almacenan los datos y redirecciona al mostrar de las coberturas
@@ -250,6 +298,11 @@ class Admin extends BaseController
 
     public function buscarCobertura()
     {
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
         $coberturasModel = model('CoberturasModel');//Se toma el modelo de las coberturas
     
         $nombre = $this->request->getGet('nombre');//se jalan los datos a 
@@ -285,6 +338,11 @@ class Admin extends BaseController
     
 
     public function estadisticas(){
+        $session = session();
+        if($session->get('logged_in') != TRUE || $session->get('perfil') != 'Administrador'){
+            $session->destroy();
+            return redirect ('/');
+        }
         $coberturasModel = model('CoberturasModel'); //Se toma el modelo de las coberturas
         $data['coberturas'] = $coberturasModel->findAll(); //se obtienen los datos de las coberturas
         $ventasModel = model('VentasModel'); //Se toma el modelo de las ventas
