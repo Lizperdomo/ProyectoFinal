@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UsuarioModel;
 use CodeIgniter\Controller;
+$session = \Config\Services::session();
 
 class AuthController extends Controller
 {
@@ -28,6 +29,7 @@ class AuthController extends Controller
                 'id' => $usuario->id,
                 'nombre' => $usuario->nombre,
                 'perfil' => $usuario->perfil,
+                'logged_in' => true
             ];
 
             // Guarda la información del usuario en la sesión
