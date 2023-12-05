@@ -43,22 +43,22 @@
     <h1>Información de seguro de vida</h1>
     <h1></h1>
     <table>
-        <thead>
-            <!---Campos de la tabla-->
-                <th>Cobertura</th>
-                <th>Fecha de activación </th>
-                <th>Pago mensual</th>
-        </thead>
-        <tbody>
-            <!--Ciclo para mostrar los datos de las coberturas del seguro del cliente--->
-        <?php foreach($coberturas as $cobertura): ?>
-                    <tr>
-                        <td><?=$cobertura->nombre ?></td>
-                        <td><?=$cobertura->created_at ?></td>
-                        <td><?=$cobertura->costo ?></td>
-                    </tr>
-                    <?php endforeach ?>
-        </tbody>
-    </table>
+    <thead>
+        <tr>
+            <th>Cobertura</th>
+            <th>Monto</th>
+            <th>Fecha de Activación</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($ventas as $venta): ?>
+        <tr>
+            <td><?= $venta->nombre_cobertura ?></td>
+            <td>$<?= number_format($venta->monto, 2) ?></td>
+            <td><?= $venta->created_at ?></td>
+        </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
 </body>
 </html>
