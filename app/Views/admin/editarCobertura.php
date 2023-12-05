@@ -80,8 +80,8 @@
                 <input type="text" id="status" name="status" value="<?= $cobertura->status ?>" required>
             </div>
             <div class="form-group">
-                <label for="costo">Costo:</label>
-                <input type="text" id="costo" name="costo" value="<?= $cobertura->costo ?>" required>
+                <label for="monto">Costo:</label>
+                <input type="text" id="monto" name="monto" value="<?= $cobertura->monto ?>" required>
             </div>
             <div class="form-group">
                 <input type="submit" value="Enviar"> <!-- Este es el botòn para enviar la informaciòn-->
