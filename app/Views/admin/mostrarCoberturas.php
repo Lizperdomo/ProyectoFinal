@@ -59,7 +59,7 @@
                         <td><?=$cobertura->nombre ?></td>
                         <td><?=$cobertura->descripcion ?></td>
                         <td><?=$cobertura->status ?></td>
-                        <td><?=$cobertura->costo ?></td>
+                        <td><?=$cobertura->monto ?></td>
                         <td>    
                             <a href="<?=base_url('admin/deleteCobertura/'. $cobertura->id);?>">Eliminar</a> <!--Se jala la ruta para eliminar una cobertura por medio de su id-->
                             <a href="<?=base_url('admin/editarCobertura/'. $cobertura->id);?>">Editar</a> <!--Se jala la ruta para editar una cobertura por medio de su id-->
