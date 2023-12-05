@@ -70,11 +70,12 @@
             <!---Se toman los datos de las coberturas por medio de la variable establecida anteriormente--->
             <h2><?= $cobertura->nombre ?></h2>
             <p>Descripción: <?= $cobertura->descripcion ?> </p>
-            <p>Total a pagar mensualmente: $<?= $cobertura->costo ?></p>
-            <!---Se tiene un botòn que redirecciona al formulario de comprar en caso de que el cliente desee comprar un cobertura-->
-            <a href="<?= base_url('index.php/cliente/comprar'); ?>" class="comprar-link"> 
+            <p>Total a pagar mensualmente: $<?= $cobertura->monto ?></p>
+            <!---Se tiene un botòn que redirecciona al formulario de comprar en caso de que el cliente desee comprar un cobertura pasando el nombre y el monto de la cobertura que seleccione-->
+            <a href="<?= base_url('cliente/comprar?nombre=' . urlencode($cobertura->nombre) . '&monto=' . urlencode($cobertura->monto)); ?>" class="comprar-link"> 
                 <button class="comprar-button">Comprar -></button>
             </a>
+
         </div>
         <?php endforeach; ?>
     </div>
