@@ -66,7 +66,7 @@
                 <!--Como tal aqui se establece el formulario para agregar a una cobertura tomando los campos que almacena la base de datos -->
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="" required>
+                <input type="text" id="nombre" name="nombre" required>
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción:</label>
@@ -77,8 +77,8 @@
                 <input type="text" id="status" name="status" required>
             </div>
             <div class="form-group">
-                <label for="costo">Costo:</label>
-                <input type="number" id="costo" name="costo" required>
+                <label for="monto">Costo:</label>
+                <input type="number" id="monto" name="monto" required>
             </div>
             <div class="form-group">
                 <input type="submit" value="Enviar"> <!-- Este es el botòn para enviar la informaciòn-->
